@@ -3,7 +3,6 @@ export type AgentsMdAgent =
   | "cursor"
   | "codex"
   | "gemini-cli"
-  | "windsurf"
   | "opencode"
   | "aider"
   | "universal";

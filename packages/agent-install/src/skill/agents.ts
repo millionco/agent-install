@@ -410,13 +410,6 @@ export const skillAgents: Record<SkillAgentType, SkillAgentConfig> = {
     detectInstalled: async () => existsSync(join(home, ".warp")),
     isUniversal: true,
   },
-  windsurf: {
-    name: "windsurf",
-    displayName: "Windsurf",
-    skillsDir: ".windsurf/skills",
-    globalSkillsDir: join(home, ".codeium/windsurf/skills"),
-    detectInstalled: async () => existsSync(join(home, ".codeium/windsurf")),
-  },
   zencoder: {
     name: "zencoder",
     displayName: "Zencoder",

@@ -82,4 +82,4 @@ Every PR and push to `main` runs `pnpm build && pnpm typecheck && pnpm lint && p
 
 JSONC writes go through `jsonc-parser`'s `modify` so existing comments are preserved.
 
-**AGENTS.md**: markdown-aware section editing. Sections are split by `^#{1,6} heading$` lines. `upsertAgentsMdSection` can `append`, `prepend`, or `replace`. Per-agent variants (`CLAUDE.md`, `GEMINI.md`, `.cursor/rules/*.mdc`, `.windsurfrules`) are resolved from a single `agentsMdFiles` table.
+**AGENTS.md**: markdown-aware section editing. Sections are split by `^#{1,6} heading$` lines. `upsertAgentsMdSection` can `append`, `prepend`, or `replace`. Per-agent variants (`CLAUDE.md`, `GEMINI.md`, `.cursor/rules/*.mdc`) are resolved from a single `agentsMdFiles` table.

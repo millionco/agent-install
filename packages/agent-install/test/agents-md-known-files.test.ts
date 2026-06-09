@@ -15,7 +15,6 @@ describe("agentsMdFiles catalog", () => {
       "cursor",
       "codex",
       "gemini-cli",
-      "windsurf",
       "opencode",
       "aider",
     ] as const) {
@@ -53,7 +52,6 @@ describe("resolveAgentsMdFilePath", () => {
   it("resolves agent-specific filenames", () => {
     expect(resolveAgentsMdFilePath({ cwd: "/p", agent: "claude-code" })).toBe("/p/CLAUDE.md");
     expect(resolveAgentsMdFilePath({ cwd: "/p", agent: "gemini-cli" })).toBe("/p/GEMINI.md");
-    expect(resolveAgentsMdFilePath({ cwd: "/p", agent: "windsurf" })).toBe("/p/.windsurfrules");
   });
 
   it("honors an agent with a subdirectory (cursor → .cursor/rules)", () => {

@@ -24,7 +24,6 @@ const AGENTS = [
   { name: "Gemini CLI", flag: "gemini-cli" },
   { name: "GitHub Copilot", flag: "github-copilot" },
   { name: "Goose", flag: "goose" },
-  { name: "Windsurf", flag: "windsurf" },
   { name: "Cline", flag: "cline" },
   { name: "Claude Desktop", flag: "claude-desktop" },
   { name: "VS Code", flag: "vscode" },
@@ -423,7 +422,7 @@ const HomePage = () => {
               {
                 question: "Which agents are supported?",
                 answer:
-                  "Claude Code, Cursor, Codex, OpenCode, Gemini CLI, GitHub Copilot, Goose, Windsurf, Roo, Cline, Kilo, Claude Desktop, VS Code, Zed, Antigravity, MCPorter, Aider, and more. The supported set differs slightly by surface (skills vs MCP vs AGENTS.md).",
+                  "Claude Code, Cursor, Codex, OpenCode, Gemini CLI, GitHub Copilot, Goose, Roo, Cline, Kilo, Claude Desktop, VS Code, Zed, Antigravity, MCPorter, Aider, and more. The supported set differs slightly by surface (skills vs MCP vs AGENTS.md).",
               },
               {
                 question: "Is the API stable?",
