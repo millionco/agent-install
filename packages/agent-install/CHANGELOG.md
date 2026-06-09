@@ -1,5 +1,12 @@
 # agent-install
 
+## 0.0.6
+
+### Patch Changes
+
+- 7179ba6: Remove Windsurf from supported skill and AGENTS.md agent options.
+- fix
+
 ## 0.0.5
 
 ### Patch Changes
