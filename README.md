@@ -239,11 +239,11 @@ https://mcp.example.com/sse (+ transport: "sse")
 
 ## Supported agents
 
-| Surface   | Agents                                                                                                                                                                                                                                         |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Skills    | 50+ agents incl. Claude Code, Cursor, Codex, OpenCode, Gemini CLI, GitHub Copilot, Amp, Antigravity, Augment, Cline, Continue, Crush, Factory Droid, Goose, Junie, Kilo, Kiro CLI, OpenClaw, Pi, Roo, Trae, Warp, Zencoder, universal          |
-| MCP       | Claude Code, Claude Desktop, Cursor, Codex, Cline (ext + CLI), VS Code, GitHub Copilot CLI, Gemini CLI, Goose, OpenCode, Zed, Antigravity, MCPorter                                                                                            |
-| AGENTS.md | Universal, Claude Code (CLAUDE.md), Gemini CLI (GEMINI.md), Cursor (.cursor/rules), Codex, OpenCode, Aider                                                                                                                                     |
+| Surface   | Agents                                                                                                                                                                                                                                |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Skills    | 50+ agents incl. Claude Code, Cursor, Codex, OpenCode, Gemini CLI, GitHub Copilot, Amp, Antigravity, Augment, Cline, Continue, Crush, Factory Droid, Goose, Junie, Kilo, Kiro CLI, OpenClaw, Pi, Roo, Trae, Warp, Zencoder, universal |
+| MCP       | Claude Code, Claude Desktop, Cursor, Codex, Cline (ext + CLI), VS Code, GitHub Copilot CLI, Gemini CLI, Goose, OpenCode, Zed, Antigravity, MCPorter                                                                                   |
+| AGENTS.md | Universal, Claude Code (CLAUDE.md), Gemini CLI (GEMINI.md), Cursor (.cursor/rules), Codex, OpenCode, Aider                                                                                                                            |
 
 The full list of skill agents lives in [`packages/agent-install/src/skill/agents.ts`](./packages/agent-install/src/skill/agents.ts). Pass `-a <name>` to target specific agents (or `-a '*'` for all).
 
