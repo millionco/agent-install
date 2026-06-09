@@ -41,13 +41,6 @@ export const agentsMdFiles: Record<AgentsMdAgent, AgentsMdFileDescriptor> = {
     supportsMultipleFiles: false,
     aliasOf: "AGENTS.md",
   },
-  windsurf: {
-    agent: "windsurf",
-    displayName: "Windsurf (.windsurfrules)",
-    filename: ".windsurfrules",
-    fileExtension: "txt",
-    supportsMultipleFiles: false,
-  },
   opencode: {
     agent: "opencode",
     displayName: "OpenCode (AGENTS.md)",

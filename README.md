@@ -146,7 +146,7 @@ mcp.installMcpServerForAgent(name, config, agent, opts);
 
 ### AGENTS.md
 
-`agentsMd` reads, upserts, and removes sections in [AGENTS.md](https://agents.md/) and its per-agent variants (`CLAUDE.md`, `GEMINI.md`, `.cursor/rules/`, `.windsurfrules`, etc.) without losing surrounding content.
+`agentsMd` reads, upserts, and removes sections in [AGENTS.md](https://agents.md/) and its per-agent variants (`CLAUDE.md`, `GEMINI.md`, `.cursor/rules/`, etc.) without losing surrounding content.
 
 ```ts
 import { agentsMd } from "agent-install";
@@ -241,9 +241,9 @@ https://mcp.example.com/sse (+ transport: "sse")
 
 | Surface   | Agents                                                                                                                                                                                                                                         |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Skills    | 52 agents incl. Claude Code, Cursor, Codex, OpenCode, Gemini CLI, GitHub Copilot, Amp, Antigravity, Augment, Cline, Continue, Crush, Factory Droid, Goose, Junie, Kilo, Kiro CLI, OpenClaw, Pi, Roo, Trae, Warp, Windsurf, Zencoder, universal |
+| Skills    | 50+ agents incl. Claude Code, Cursor, Codex, OpenCode, Gemini CLI, GitHub Copilot, Amp, Antigravity, Augment, Cline, Continue, Crush, Factory Droid, Goose, Junie, Kilo, Kiro CLI, OpenClaw, Pi, Roo, Trae, Warp, Zencoder, universal          |
 | MCP       | Claude Code, Claude Desktop, Cursor, Codex, Cline (ext + CLI), VS Code, GitHub Copilot CLI, Gemini CLI, Goose, OpenCode, Zed, Antigravity, MCPorter                                                                                            |
-| AGENTS.md | Universal, Claude Code (CLAUDE.md), Gemini CLI (GEMINI.md), Cursor (.cursor/rules), Windsurf (.windsurfrules), Codex, OpenCode, Aider                                                                                                          |
+| AGENTS.md | Universal, Claude Code (CLAUDE.md), Gemini CLI (GEMINI.md), Cursor (.cursor/rules), Codex, OpenCode, Aider                                                                                                                                     |
 
 The full list of skill agents lives in [`packages/agent-install/src/skill/agents.ts`](./packages/agent-install/src/skill/agents.ts). Pass `-a <name>` to target specific agents (or `-a '*'` for all).
 

@@ -54,7 +54,6 @@ const PRIORITY_RELATIVE_PATHS: readonly string[] = [
   ".tabnine/agent/skills",
   ".trae/skills",
   ".vibe/skills",
-  ".windsurf/skills",
   ".zencoder/skills",
 ];
 

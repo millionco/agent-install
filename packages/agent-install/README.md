@@ -94,7 +94,6 @@ Known variants (from `agentsMdFiles`):
 | claude-code | `CLAUDE.md`           |
 | gemini-cli  | `GEMINI.md`           |
 | cursor      | `.cursor/rules/*.mdc` |
-| windsurf    | `.windsurfrules`      |
 | codex       | `AGENTS.md`           |
 | opencode    | `AGENTS.md`           |
 | aider       | `AGENTS.md`           |

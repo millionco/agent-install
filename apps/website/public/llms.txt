@@ -6,9 +6,9 @@ Install agent skills and MCPs with one API.
 
 - **Skills** — `SKILL.md` files that trigger agent behavior, copied or symlinked into each agent's skills directory
 - **MCP servers** — Model Context Protocol servers, written into each agent's native config (JSON, JSONC, YAML, or TOML) with per-agent transforms
-- **AGENTS.md** — sectioned guidance for [agents.md](https://agents.md/) and per-agent variants (`CLAUDE.md`, `GEMINI.md`, `.cursor/rules/`, `.windsurfrules`)
+- **AGENTS.md** — sectioned guidance for [agents.md](https://agents.md/) and per-agent variants (`CLAUDE.md`, `GEMINI.md`, `.cursor/rules/`)
 
-Works with Claude Code, Cursor, Codex, OpenCode, Gemini CLI, GitHub Copilot, Goose, Windsurf, Roo, Cline, Kilo, Claude Desktop, VS Code, Zed, Antigravity, MCPorter, Aider, and 25+ other agents.
+Works with Claude Code, Cursor, Codex, OpenCode, Gemini CLI, GitHub Copilot, Goose, Roo, Cline, Kilo, Claude Desktop, VS Code, Zed, Antigravity, MCPorter, Aider, and 25+ other agents.
 
 ## Install
 
@@ -147,7 +147,7 @@ https://mcp.example.com/sse (+ transport: "sse")
 
 ## AGENTS.md
 
-`agentsMd` reads, upserts, and removes sections in [AGENTS.md](https://agents.md/) and its per-agent variants (`CLAUDE.md`, `GEMINI.md`, `.cursor/rules/`, `.windsurfrules`) without losing surrounding content.
+`agentsMd` reads, upserts, and removes sections in [AGENTS.md](https://agents.md/) and its per-agent variants (`CLAUDE.md`, `GEMINI.md`, `.cursor/rules/`) without losing surrounding content.
 
 ```ts
 import { agentsMd } from "agent-install";

@@ -51,7 +51,6 @@ export type SkillAgentType =
   | "trae-cn"
   | "universal"
   | "warp"
-  | "windsurf"
   | "zencoder";
 
 export type SkillSourceType = "local" | "github" | "gitlab" | "git" | "url" | "well-known";

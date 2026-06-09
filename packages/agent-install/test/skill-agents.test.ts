@@ -67,7 +67,6 @@ const REGISTERED_AGENTS = [
   "trae-cn",
   "universal",
   "warp",
-  "windsurf",
   "zencoder",
 ] as const;
 
