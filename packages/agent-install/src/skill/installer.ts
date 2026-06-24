@@ -1,6 +1,16 @@
 import { existsSync } from "node:fs";
-import { cp, lstat, mkdir, readdir, readlink, realpath, rm, symlink } from "node:fs/promises";
-import { homedir, platform } from "node:os";
+import {
+  cp,
+  lstat,
+  mkdir,
+  mkdtemp,
+  readdir,
+  readlink,
+  realpath,
+  rm,
+  symlink,
+} from "node:fs/promises";
+import { homedir, platform, tmpdir } from "node:os";
 import { basename, dirname, join, relative, resolve, sep } from "node:path";
 
 import { isPathSafe } from "../utils/is-path-safe.ts";
@@ -101,6 +111,36 @@ const copyDirectory = async (src: string, dest: string, rootSrc = src): Promise<
   );
 };
 
+const resolveExistingPath = async (path: string): Promise<string> =>
+  realpath(path).catch(() => resolve(path));
+
+const directoriesOverlap = (source: string, dest: string): boolean =>
+  source === dest || isPathInsideBase(dest, source) || isPathInsideBase(source, dest);
+
+const syncDirectory = async (source: string, dest: string): Promise<void> => {
+  const [realSource, realDest] = await Promise.all([
+    resolveExistingPath(source),
+    resolveExistingPath(dest),
+  ]);
+
+  if (realSource === realDest) return;
+
+  if (directoriesOverlap(realSource, realDest)) {
+    const staging = await mkdtemp(join(tmpdir(), "agent-install-stage-"));
+    try {
+      await copyDirectory(realSource, staging);
+      await cleanAndCreateDirectory(dest);
+      await copyDirectory(staging, dest);
+    } finally {
+      await rm(staging, { recursive: true, force: true }).catch(() => undefined);
+    }
+    return;
+  }
+
+  await cleanAndCreateDirectory(dest);
+  await copyDirectory(source, dest);
+};
+
 const isLoopError = (error: unknown): boolean =>
   Boolean(
     error &&
@@ -154,8 +194,7 @@ const createSymlink = async (target: string, linkPath: string): Promise<boolean>
 };
 
 const installByCopy = async (skill: Skill, destination: string): Promise<InstallResultForAgent> => {
-  await cleanAndCreateDirectory(destination);
-  await copyDirectory(skill.path, destination);
+  await syncDirectory(skill.path, destination);
   return { success: true, path: destination, mode: "copy" };
 };
 
@@ -166,8 +205,7 @@ const installBySymlink = async (
   agentDir: string,
   isGlobal: boolean,
 ): Promise<InstallResultForAgent> => {
-  await cleanAndCreateDirectory(canonicalDir);
-  await copyDirectory(skill.path, canonicalDir);
+  await syncDirectory(skill.path, canonicalDir);
 
   if (isGlobal && isUniversalSkillAgent(agentType)) {
     return { success: true, path: canonicalDir, canonicalPath: canonicalDir, mode: "symlink" };
@@ -177,8 +215,7 @@ const installBySymlink = async (
     return { success: true, path: agentDir, canonicalPath: canonicalDir, mode: "symlink" };
   }
 
-  await cleanAndCreateDirectory(agentDir);
-  await copyDirectory(skill.path, agentDir);
+  await syncDirectory(skill.path, agentDir);
   return {
     success: true,
     path: agentDir,

@@ -148,6 +148,39 @@ describe("installer symlink regressions", () => {
     }
   });
 
+  it("preserves content when the source path is the canonical destination", async () => {
+    const root = await mkdtemp(join(tmpdir(), "agent-install-symlink-"));
+    const projectDir = join(root, "project");
+    const skillName = "in-place-skill";
+    const canonicalDir = join(projectDir, ".agents", "skills", skillName);
+    await mkdir(canonicalDir, { recursive: true });
+    await writeFile(
+      join(canonicalDir, "SKILL.md"),
+      `---\nname: ${skillName}\ndescription: in place\n---\nORIGINAL BODY\n`,
+      "utf-8",
+    );
+
+    try {
+      const result = await installSkillForAgent(
+        { name: skillName, description: "test", path: canonicalDir, rawContent: "" },
+        "claude-code",
+        { cwd: projectDir, mode: "symlink", global: false },
+      );
+      expect(result.success).toBe(true);
+
+      const canonicalContents = await readFile(join(canonicalDir, "SKILL.md"), "utf-8");
+      expect(canonicalContents).toContain("ORIGINAL BODY");
+
+      const claudeContents = await readFile(
+        join(projectDir, ".claude", "skills", skillName, "SKILL.md"),
+        "utf-8",
+      );
+      expect(claudeContents).toContain("ORIGINAL BODY");
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
   it("rejects unsafe skill names (path traversal)", async () => {
     const root = await mkdtemp(join(tmpdir(), "agent-install-symlink-"));
     const projectDir = join(root, "project");
